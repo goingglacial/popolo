@@ -1,3 +1,4 @@
 from django.contrib import admin
+from popolo.models import Popul
 
-# Register your models here.
+admin.site.register(Popul)

@@ -1,7 +1,7 @@
 from django.db import models
 
-class Pops (models.Model):
-    city = models.CharField(max_length=40)
+class Popul (models.Model):
+    city = models.CharField(max_length=40, primary_key=True)
     state = models.CharField(max_length=10)
     pop = models.CharField(max_length=40)
 
