@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'popolo'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -57,10 +58,10 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.mysql',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'popolo',
-        'USER': 'anniekramer',
-        'PASSWORD': 'anniekramer',
+        'USER': 'root',
+        'PASSWORD': '',
         'HOST': 'localhost',
     }
 }
@@ -70,7 +71,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Los_Angeles'
 
 USE_I18N = True
 
