@@ -1,9 +1,6 @@
-from django.conf.urls import Popul
+from django.conf.urls import patterns, url
+from popolo import views
 
-from django.contrib import admin
-admin.autodiscover()
-
-urlpatterns = patterns('',
-    url(r'^popolo/', include('popolo.urls')),
-    url(r'^admin/', include(admin.site.urls)),
+urlspatterns = patterns('',
+    url(r'^$', views.index, name='index')
 )
