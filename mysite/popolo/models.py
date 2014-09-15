@@ -11,3 +11,5 @@ class Popul (models.Model):
         return self.state
     def __unicode__(self):
         return self.pop
+
+all_entries = Popul.objects.all()
