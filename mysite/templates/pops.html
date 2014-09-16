@@ -20,17 +20,18 @@ render basic view of pops data set in browser.
 		<p id="subtitle">cobbled together by Annie Kramer</p>
 		<table>
 			<tr>
-				<th>Field1</th>
-				<th>Field2</th>
-				<th>Field3</th>
+				<th>city</th>
+				<th>state</th>
+				<th>pop</th>
 			</tr>
-			{% for item in query_results %}
+			{% for item in all_entries %}
 			<tr>
 				<td>{{ item.field1 }}</td>
-				<td>{{ item.fieldN }}</td>
+				<td>{{ item.field2 }}</td>
+				<td>{{ item.field3 }}</td>
 			</tr>
 			{% endfor %}
 		</table>
 	</body>
-	
+
 </html>

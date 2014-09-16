@@ -1,10 +1,14 @@
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
+from django.template import loader, RequestContext
 from popolo.models import Popul
 
 def index(request):
     return HttpResponse("Hello, world. Welcome to popolo.")
 
 def results(request):
-    query_results = Popul.objects.all()
-    #return a response to your template and add query_results to the context
+    all_entries = Popul.objects.order_by('pop')[:50]
+    template = loader.get_template('pops.html')
+    context = RequestContext(request, {
+        'all_entries': all_entries})
+    return HttpResponse(template.render(context))

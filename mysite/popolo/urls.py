@@ -3,5 +3,5 @@ from popolo import views
 
 urlpatterns = patterns('',
     url(r'^index$', views.index, name='index'),
-    url(r'^results$', views.result, name='results'),
+    url(r'^results$', views.results, name='results'),
 )
