@@ -1,0 +1,57 @@
+# Devanagari merging
+cd ~/src/googlefontdirectory/apache/notosans/;
+## subset the latin - regular
+pyftsubset NotoSans-Regular.ttf \
+$(<~/src/googlefontdirectory/tools/encodings/unicodes-latin.txt) \
+--layout-features='' --glyph-names --symbol-cmap \
+--notdef-glyph --notdef-outline --recommended-glyphs \
+--name-IDs='*' --name-legacy --name-languages='*' \
+--hinting;
+mv NotoSans-Regular.ttf.subset NotoSans-Regular.latin;
+pyftsubset NotoSans-Regular.ttf \
+$(<~/src/googlefontdirectory/tools/encodings/unicodes-latin.txt) \
+$(<~/src/googlefontdirectory/tools/encodings/unicodes-latin-ext.txt) \
+--layout-features='' --glyph-names --symbol-cmap \
+--notdef-glyph --notdef-outline --recommended-glyphs \
+--name-IDs='*' --name-legacy --name-languages='*' \
+--verbose --timing --hinting;
+mv NotoSans-Regular.ttf.subset NotoSans-Regular.latin-ext;
+## merge it with Devanagari
+pyftmerge NotoSans-Regular.latin  \
+~/src/googlefontdirectory/apache/notosansdevanagari/NotoSansDevanagari-Regular.ttf;
+mv merged.ttf NotoSans-Regular.devanagari;
+# subset the latin - bold
+pyftsubset NotoSans-Bold.ttf \
+$(<~/src/googlefontdirectory/tools/encodings/unicodes-latin.txt) \
+--layout-features='' --glyph-names --symbol-cmap \
+--notdef-glyph --notdef-outline --recommended-glyphs \
+--name-IDs='*' --name-legacy --name-languages='*' \
+--hinting;
+mv NotoSans-Bold.ttf.subset NotoSans-Bold.latin;
+pyftsubset NotoSans-Bold.ttf \
+$(<~/src/googlefontdirectory/tools/encodings/unicodes-latin.txt) \
+$(<~/src/googlefontdirectory/tools/encodings/unicodes-latin-ext.txt) \
+--layout-features='' --glyph-names --symbol-cmap \
+--notdef-glyph --notdef-outline --recommended-glyphs \
+--name-IDs='*' --name-legacy --name-languages='*' \
+--hinting;
+mv NotoSans-Bold.ttf.subset NotoSans-Bold.latin-ext;
+## merge it with Devanagari
+pyftmerge NotoSans-Bold.latin \
+~/src/googlefontdirectory/apache/notosansdevanagari/NotoSansDevanagari-Bold.ttf;
+mv merged.ttf NotoSans-Bold.devanagari;
+# ttx the devanagaris to xml
+ttx -o NotoSans-Regular.devanagari.ttx NotoSans-Regular.devanagari;
+ttx -o NotoSans-Bold.devanagari.ttx NotoSans-Bold.devanagari;
+rm NotoSans-Regular.devanagari;
+rm NotoSans-Bold.devanagari;
+# check the vertical metrics
+~/src/googlefontdirectory/tools/bbox/vmet.py NotoSans-Regular.ttf;
+~/src/googlefontdirectory/tools/bbox/vmet.py NotoSans-Bold.ttf;
+# hand edit vertical metrics
+mate *ttx
+# ttx them back to binary
+ttx -o NotoSans-Regular.devanagari NotoSans-Regular.devanagari.ttx;
+ttx -o NotoSans-Bold.devanagari NotoSans-Bold.devanagari.ttx;
+rm NotoSans-Regular.devanagari.ttx;
+rm NotoSans-Bold.devanagari.ttx;
