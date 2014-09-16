@@ -12,3 +12,10 @@ def results(request):
     context = RequestContext(request, {
         'all_entries': all_entries})
     return HttpResponse(template.render(context))
+
+def random(request):
+    all_entries = Popul.objects.all()
+    template = loader.get_template('pops.html')
+    context = RequestContext(request, {
+        'all_entries': all_entries})
+    return HttpResponse(template.render(context))
