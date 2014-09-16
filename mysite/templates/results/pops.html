@@ -1,5 +1,9 @@
-<!doctype html>
+<!--
+pops.html
+render basic view of pops data set in browser.
+-->
 
+<!doctype html>
 <html>
 
 	<head>
@@ -8,14 +12,25 @@
 		<link href="style.css" rel="stylesheet" type="text/css">
 		<link href='http://fonts.googleapis.com/css?family=Lobster|PT+Sans|Pacifico|Cabin+Condensed' rel='stylesheet' type='text/css'>
 		<link rel="shortcut icon" href="http://example.com/rising-sun.ico">
-		<script type="text/javascript" src="d3.js"></script>
-		<script type="text/javascript" src="script.js"></script>
 	</head>
 
 	<body>
 		<img alt="we the people" src="wethepeople.jpg" id="full-screen-background-image"/>
 		<h1 id="header">u.s. city populations</h1>
 		<p id="subtitle">cobbled together by Annie Kramer</p>
+		<table>
+			<tr>
+				<th>Field1</th>
+				<th>Field2</th>
+				<th>Field3</th>
+			</tr>
+			{% for item in query_results %}
+			<tr>
+				<td>{{ item.field1 }}</td>
+				<td>{{ item.fieldN }}</td>
+			</tr>
+			{% endfor %}
+		</table>
 	</body>
-
+	
 </html>
