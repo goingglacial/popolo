@@ -7,7 +7,7 @@ def index(request):
     return HttpResponse("Hello, world. Welcome to popolo.")
 
 def results(request):
-    all_entries = Popul.objects.order_by('pop')[:50]
+    all_entries = Popul.objects.all()
     template = loader.get_template('pops.html')
     context = RequestContext(request, {
         'all_entries': all_entries})
