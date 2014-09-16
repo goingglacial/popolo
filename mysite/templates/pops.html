@@ -9,12 +9,13 @@ render basic view of pops data set in browser.
 	<head>
 		<meta charset="utf-8">
 		<title>Popolo App</title>
-		<link href="style.css" rel="stylesheet" type="text/css">
+		{% load staticfiles %}
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}/static/style.css">
 		<link href='http://fonts.googleapis.com/css?family=Lobster|PT+Sans|Pacifico|Cabin+Condensed' rel='stylesheet' type='text/css'>
-		<link rel="shortcut icon" href="http://example.com/rising-sun.ico">
 	</head>
 
 	<body>
+		<img id="full-screen-background-image" src="{% static "wethepeople.jpg" %}" alt="We the People!"/>
 		<img alt="we the people" src="wethepeople.jpg" id="full-screen-background-image"/>
 		<h1 id="header">u.s. city populations</h1>
 		<p id="subtitle">cobbled together by Annie Kramer</p>
