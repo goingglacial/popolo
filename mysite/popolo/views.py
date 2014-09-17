@@ -15,7 +15,7 @@ def results(request):
 
 def random(request):
     all_entries = Popul.objects.all().order_by('?')[:500]
-    template = loader.get_template('pops.html')
+    template = loader.get_template('pops_random.html')
     context = RequestContext(request, {
         'all_entries': all_entries})
     return HttpResponse(template.render(context))

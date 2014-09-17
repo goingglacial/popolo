@@ -14,14 +14,17 @@ render basic view of pops data set in browser.
 	</head>
 
 	<body>
-		<!--<img id="full-screen-background-image" src='/static/wethepeople.jpg' alt="We the People!"/>-->
-		<h1 id="header">u.s. city populations</h1>
-		<p id="subtitle">cobbled together by Annie Kramer</p>
+		<ul id="nav">
+			<li><a href="#">Contact</a></li>
+			<li><a href="#">Going Glacial</a></li>
+			<li><a href="#">About</a></li>
+		</ul>
+		<h1 id="header">u.s. city populations: top 5,000</h1>
 		<table>
 			<tr>
-				<th>city</th>
-				<th>state</th>
-				<th>pop</th>
+				<th id="city-column">City</th>
+				<th>State</th>
+				<th>Population</th>
 			</tr>
 			{% for item in all_entries %}
 			<tr>
