@@ -6,6 +6,11 @@ from popolo.models import Popul
 def index(request):
     return HttpResponse("Hello, world. Welcome to popolo.")
 
+def home(request):
+    template = loader.get_template('home.html')
+    context = RequestContext(request)
+    return HttpResponse(template.render(context))
+
 def results(request):
     all_entries = Popul.objects.all()
     template = loader.get_template('pops.html')

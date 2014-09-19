@@ -1,0 +1,29 @@
+<!--
+home.html
+render home page in browser
+-->
+
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Popolo App</title>
+		{% load staticfiles %}
+		<link href="{{ STATIC_URL }}homestyle.css" rel="stylesheet" type="text/css"/>
+	</head>
+
+	<body>
+		<img id="full-screen-background-image" src="{% static "anseladamsroad.jpg" %}" alt="Ansel Adams"/>
+		<ul id="nav">
+			<li><a href="#">Contact</a></li>
+			<li><a href="#">Going Glacial</a></li>
+			<li><a href="#">Random</a></li>
+			<li><a href="#">Results</a></li>
+			<li><a href="#">Bubbles</a></li>
+			<li><a href="#">About</a></li>
+		</ul>
+		<h1 id="header">popolo: know where you are</h1>
+	</body>
+
+</html>
