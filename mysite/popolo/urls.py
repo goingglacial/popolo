@@ -7,4 +7,5 @@ urlpatterns = patterns('',
     url(r'^random$', views.random, name='random'),
     url(r'^fifty$', views.fifty, name='fifty'),
     url(r'^texas$', views.texas, name='texas'),
+    # url(r'^state/_____$', views.texas, name='texas'),
 )
