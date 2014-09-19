@@ -29,7 +29,7 @@ def fifty(request):
 
 def texas(request):
     all_entries = Popul.objects.filter(state='TX')
-    template = loader.get_template('50pops.html')
+    template = loader.get_template('txpops.html')
     context = RequestContext(request, {
         'all_entries': all_entries})
     return HttpResponse(template.render(context))
