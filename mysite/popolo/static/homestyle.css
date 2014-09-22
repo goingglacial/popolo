@@ -46,7 +46,7 @@ html, body {
 }
 
 #nav li a:hover {
-	color: #c00;
+	color: blue;
 	background-color: #fff; 
 }
 

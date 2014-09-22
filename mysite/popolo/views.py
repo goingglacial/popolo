@@ -11,6 +11,9 @@ def home(request):
     context = RequestContext(request)
     return HttpResponse(template.render(context))
 
+def bubbles(request):
+    return HttpResponse("Insert pop bubbles here.")
+
 def results(request):
     all_entries = Popul.objects.all()
     template = loader.get_template('pops.html')
