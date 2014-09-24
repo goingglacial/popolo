@@ -10,6 +10,13 @@ html, body {
 	background-color: #ADD8E6;
 }
 
+#header {
+	color: blue;
+	font-weight: bold;
+	font-family: 'Pacifico', cursive;
+	text-align: center;
+}
+
 #full-screen-background-image {
 	z-index: -999;
 	min-height: 100%;

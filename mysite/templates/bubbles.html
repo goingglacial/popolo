@@ -6,6 +6,7 @@
 		<meta charset="utf-8">
 		<title>Popolo Bubbles</title>
 		{% load staticfiles %}
+		<!--link to bubbleStyle.css here-->
 		<link href="{{ STATIC_URL }}bubbleStyle.css" rel="stylesheet" type="text/css"/>
 		<!-- link to JS scripts here -->
 		<script type="text/javascript" src="{{ STATIC_URL }}d3.js"></script>
@@ -16,6 +17,10 @@
 	</head>
 
 	<body>
+		<ul id="nav">
+			<li><a href="#">About</a></li>
+			<li><a href="#">Home</a></li>
+		</ul>
 		<h1 id="header">great american cityscapes</h1>
 	</body>
 
