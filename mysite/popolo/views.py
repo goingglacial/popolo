@@ -112,3 +112,8 @@ def states(request, statename):
         context = RequestContext(request, {
             'all_entries': all_entries, 'statename': names_dict[statename]})
         return HttpResponse(template.render(context))
+    else:
+        template = loader.get_template('error.html')
+        context = RequestContext(request, {
+            'statename': statename})
+        return HttpResponse(template.render(context))
