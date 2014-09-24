@@ -1,0 +1,19 @@
+<!doctype html>
+
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Popolo Bubbles</title>
+		{% load staticfiles %}
+		<link href="{{ STATIC_URL }}bubbleStyle.css" rel="stylesheet" type="text/css"/>
+		<!-- link to JS scripts here -->
+		<script type="text/javascript" src="{{ STATIC_URL }}d3.js"></script>
+		<script type="text/javascript" src="{{ STATIC_URL }}bubbleSource.js"></script>
+	</head>
+
+	<body onload="renderBubbleChart()">
+		<h1 id="header">great american cityscapes</h1>
+	</body>
+
+</html>

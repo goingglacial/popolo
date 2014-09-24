@@ -1,0 +1,45 @@
+@font-face { font-family: 'Lobster'; src: url('Lobster.ttf'); }
+@font-face { font-family: 'Cabin-Regular'; src: url('Cabin-Regular.ttf'); }
+@font-face { font-family: 'Pacifico'; src: url('Pacifico.ttf'); }
+
+html, body {
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	background-color: #ADD8E6;
+}
+
+#header {
+	color: blue;
+	font-weight: bold;
+	font-family: 'Pacifico', cursive;
+	text-align: center;
+}
+
+#full-screen-background-image {
+	z-index: -999;
+	min-height: 100%;
+	min-width: 1024px;
+	width: 100%;
+	height; auto;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+.citybubble:hover {
+	stroke-width: 5px;
+	stroke: white;
+	opacity: 0.5;
+}
+
+head, body {
+	font-family: 'Cabin-Regular', sans-serif;
+	text-align: center;
+}
+
+.bubbletext {
+	font-family: 'Cabin-Regular', sans-serif;
+	font-size: 9px;
+}
