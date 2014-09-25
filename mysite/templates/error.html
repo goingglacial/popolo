@@ -14,8 +14,8 @@ error.html
 
 	<body>
 		<ul id="nav">
-			<li><a href="#">About</a></li>
-			<li><a href="#">Home</a></li>
+			<li><a href="{% url 'popolo:about' %}">About</a></li>
+			<li><a href="{% url 'popolo:home' %}">Home</a></li>
 		</ul>
 		<h1 id="header">Error! {{statename}} is not a state. Please enter a valid state name :). AMURICA!</h1>
 	</body>

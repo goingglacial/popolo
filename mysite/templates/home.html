@@ -14,15 +14,15 @@ render home page in browser
 	</head>
 
 	<body>
-	
+
 		<img id="full-screen-background-image" src="{% static "rek.jpg" %}" alt="rekcityscape"/>
 
  		<ul id="nav">
- 			<li><a href="#">Going Glacial</a></li>
- 			<li><a href="#">Random</a></li>
- 			<li><a href="#">Results</a></li>
- 			<li><a href="#">Bubbles</a></li>
- 			<li><a href="#">About</a></li>
+ 			<li><a href="#">States</a></li>
+ 			<li><a href="{% url 'popolo:random' %}">Random</a></li>
+ 			<li><a href="{% url 'popolo:results' %}">Results</a></li>
+ 			<li><a href="{% url 'popolo:bubbles' %}">Bubbles</a></li>
+ 			<li><a href="{% url 'popolo:about' %}">About</a></li>
  		</ul>
 
 		<h1 id="header">popolo: know where you are</h1>

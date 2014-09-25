@@ -44,6 +44,9 @@ def texas(request):
         'all_entries': all_entries})
     return HttpResponse(template.render(context))
 
+def about(request):
+    return HttpResponse("This is the about page.")
+
 names_dict =    {
         'AK': 'Alaska',
         'AL': 'Alabama',

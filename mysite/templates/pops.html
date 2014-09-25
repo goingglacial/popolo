@@ -15,8 +15,8 @@ render basic view of pops data set in browser.
 
 	<body>
 		<ul id="nav">
-			<li><a href="#">About</a></li>
-			<li><a href="#">Home</a></li>
+			<li><a href="{% url 'popolo:about' %}">About</a></li>
+			<li><a href="{% url 'popolo:home' %}">Home</a></li>
 		</ul>
 		<h1 id="header">u.s. city populations: top 5,000</h1>
 		<table>

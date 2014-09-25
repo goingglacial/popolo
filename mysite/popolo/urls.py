@@ -9,5 +9,6 @@ urlpatterns = patterns('',
     url(r'^random$', views.random, name='random'),
     url(r'^fifty$', views.fifty, name='fifty'),
     url(r'^texas$', views.texas, name='texas'),
+    url(r'^about$', views.about, name='about'),
     url(r'^(?P<statename>\w+)$', views.states, name='states'),
 ) 
