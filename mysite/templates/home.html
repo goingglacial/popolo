@@ -11,9 +11,14 @@ render home page in browser
 		<title>Popolo App</title>
 		{% load staticfiles %}
 		<link href="{{ STATIC_URL }}homestyle.css" rel="stylesheet" type="text/css"/>
+		<link href="{{ STATIC_URL }}bootstrap.css" rel="stylesheet" type="text/css"/>
+		<script type="text/javascript" src="{{ STATIC_URL }}typeahead.bundle.js"></script>
+		<script type="text/javascript" src="{{ STATIC_URL }}stateNames.js"></script>
+		<script type="text/javascript" src="{{ STATIC_URL }}jquery.js"></script>
+		<script type="text/javascript" src="{{ STATIC_URL }}bootstrap.js"></script>
 	</head>
 
-	<body>
+	<body onload="renderSearchEngine()">
 
 		<img id="full-screen-background-image" src="{% static "rek.jpg" %}" alt="rekcityscape"/>
 
@@ -26,6 +31,10 @@ render home page in browser
  		</ul>
 
 		<h1 id="header">popolo: know where you are</h1>
+
+		<div id="the-basics">
+			<input class="typehead" type="text" placeholder="u.s. cities">
+		</div>
 
 	</body>
 
