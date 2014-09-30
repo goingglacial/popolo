@@ -16,26 +16,17 @@ render home page in browser
 		<script type="text/javascript" src="{{ STATIC_URL }}stateNames.js"></script>
 		<script type="text/javascript" src="{{ STATIC_URL }}jquery.js"></script>
 		<script type="text/javascript" src="{{ STATIC_URL }}jquery-ui.js"></script>
+		
 		<script>
 			$(function() {
 				//pass in cities in popolo_popul table
-				availableCities = [
-			        "New York",
-			        "Los Angeles",
-			        "Chicago",
-			        "Houston",
-			        "Phoenix",
-			        "Philadelphia",
-			        "San Antonio",
-			        "Dallas",
-			        "San Diego",
-			        "Boston"
-      			];
+				availableCities = {{ all_entries|safe }};
       		$( "#cities" ).autocomplete({
       			source: availableCities
       		});
       		});
 		</script>
+
 	</head>
 
 	<body>

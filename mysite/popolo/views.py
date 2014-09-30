@@ -7,8 +7,12 @@ def index(request):
     return HttpResponse("Hello, world. Welcome to popolo.")
 
 def home(request):
+    city_dicts = Popul.objects.values('city')
+    cities_list = [str(city_dict['city']) for city_dict in city_dicts]
+    all_entries = cities_list
     template = loader.get_template('home.html')
-    context = RequestContext(request)
+    context = RequestContext(request, {
+        'all_entries': all_entries}) 
     return HttpResponse(template.render(context))
 
 def bubbles(request):
@@ -51,7 +55,6 @@ names_dict =    {
         'AK': 'Alaska',
         'AL': 'Alabama',
         'AR': 'Arkansas',
-        'AS': 'American Samoa',
         'AZ': 'Arizona',
         'CA': 'California',
         'CO': 'Colorado',
@@ -75,7 +78,6 @@ names_dict =    {
         'MI': 'Michigan',
         'MN': 'Minnesota',
         'MO': 'Missouri',
-        'MP': 'Northern Mariana Islands',
         'MS': 'Mississippi',
         'MT': 'Montana',
         'NA': 'National',
@@ -91,7 +93,6 @@ names_dict =    {
         'OK': 'Oklahoma',
         'OR': 'Oregon',
         'PA': 'Pennsylvania',
-        'PR': 'Puerto Rico',
         'RI': 'Rhode Island',
         'SC': 'South Carolina',
         'SD': 'South Dakota',
