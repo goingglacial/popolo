@@ -56,8 +56,6 @@ html{
 	text-align: center;
 }
 
-#the-basics {
-	padding: 5px 10px;
-	text-align: center;
-	margin: 0 auto;
+#cities {
+	font-size: large;
 }

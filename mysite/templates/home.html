@@ -12,13 +12,33 @@ render home page in browser
 		{% load staticfiles %}
 		<link href="{{ STATIC_URL }}homestyle.css" rel="stylesheet" type="text/css"/>
 		<link href="{{ STATIC_URL }}bootstrap.css" rel="stylesheet" type="text/css"/>
-		<script type="text/javascript" src="{{ STATIC_URL }}typeahead.bundle.js"></script>
+		<link href="{{ STATIC_URL }}jquery-ui.css" rel="stylesheet" type="text/css"/>
 		<script type="text/javascript" src="{{ STATIC_URL }}stateNames.js"></script>
 		<script type="text/javascript" src="{{ STATIC_URL }}jquery.js"></script>
-		<script type="text/javascript" src="{{ STATIC_URL }}bootstrap.js"></script>
+		<script type="text/javascript" src="{{ STATIC_URL }}jquery-ui.js"></script>
+		<script>
+			$(function() {
+				//pass in cities in popolo_popul table
+				availableCities = [
+			        "New York",
+			        "Los Angeles",
+			        "Chicago",
+			        "Houston",
+			        "Phoenix",
+			        "Philadelphia",
+			        "San Antonio",
+			        "Dallas",
+			        "San Diego",
+			        "Boston"
+      			];
+      		$( "#cities" ).autocomplete({
+      			source: availableCities
+      		});
+      		});
+		</script>
 	</head>
 
-	<body onload="renderSearchEngine()">
+	<body>
 
 		<img id="full-screen-background-image" src="{% static "rek.jpg" %}" alt="rekcityscape"/>
 
@@ -31,10 +51,13 @@ render home page in browser
  		</ul>
 
 		<h1 id="header">popolo: know where you are</h1>
+		<br>
 
-		<div id="the-basics">
-			<input class="typehead" type="text" placeholder="u.s. cities">
-		</div>
+		<center>
+			<div class="ui-widget">
+				<input id="cities" type="text" placeholder="search u.s. city pops">
+			</div>
+		</center>
 
 	</body>
 
