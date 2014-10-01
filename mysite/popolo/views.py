@@ -7,7 +7,7 @@ def index(request):
     return HttpResponse("Hello, world. Welcome to popolo.")
 
 def home(request):
-    city_dicts = Popul.objects.values('city')
+    city_dicts = Popul.objects.values('city').distinct()
     cities_list = [str(city_dict['city']) for city_dict in city_dicts]
     all_entries = cities_list
     template = loader.get_template('home.html')
