@@ -140,7 +140,7 @@ def search(request, prefix):
         possible_city = item['fields']['city']
         if possible_city.startswith(prefix):
             user_cities.append(item['fields'])
-    return StreamingHttpResponse(user_cities)
+    return HttpResponse (json.dumps(user_cities))
 
 
 # convert to over-the-wire json to 
