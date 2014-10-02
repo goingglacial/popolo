@@ -110,7 +110,7 @@ names_dict =    {
 }
 
 def states(request, statename):
-    state_dicts = Popul.objects.values('state').distinct()
+    state_dicts = Popul.objects.values('state')
     states_list = [state_dict['state'] for state_dict in state_dicts]
     # return HttpResponse(json.dumps(states_list))
     statename = statename.upper()
@@ -127,14 +127,11 @@ def states(request, statename):
         return HttpResponse(template.render(context))
 
 def search(request, prefix):
-    print prefix
+    prefix=prefix.capitalize()
+    # all_cities = Popul.objects.values('city')
     all_entries = Popul.objects.filter(city__startswith=prefix)
-    template = loader.get_template('testpops.html')
-    context = RequestContext(request, {
-        'all_entries': all_entries})
-    return HttpResponse(template.render(context))
-    # print all_entries
-    # return StreamingHttpResponse(all_entries)
+    print all_entries
+    return StreamingHttpResponse(all_entries)
     
     '''
     take prefix user has typed, query database, get results, convert to json, convert
