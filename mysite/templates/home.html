@@ -13,14 +13,12 @@ render home page in browser
 		<link href="{{ STATIC_URL }}homestyle.css" rel="stylesheet" type="text/css"/>
 		<link href="{{ STATIC_URL }}bootstrap.css" rel="stylesheet" type="text/css"/>
 		<link href="{{ STATIC_URL }}jquery-ui.css" rel="stylesheet" type="text/css"/>
-		<link href="{{ STATIC_URL }}ajax_search.css" rel="stylesheet" type="text/css"/>
 		<script type="text/javascript" src="{{ STATIC_URL }}stateNames.js"></script>
 		<script type="text/javascript" src="{{ STATIC_URL }}jquery.js"></script>
 		<script type="text/javascript" src="{{ STATIC_URL }}jquery-ui.js"></script>
-		<script type="text/javascript" src="{{ STATIC_URL }}ajax_search.js"></script>
 		
 		<script>
-			//will communicate with server via a different URL
+			//will communicate with server via /search URL
 			$(function() {
 				//pass in cities in popolo_popul table
 				availableCities = {{ all_entries|safe }};

@@ -1,8 +1,9 @@
+from django.core import serializers
 from django.http import HttpResponse, StreamingHttpResponse
 from django.shortcuts import render_to_response
 from django.template import loader, RequestContext
 from popolo.models import Popul
-# import json
+import json
 
 def index(request):
     return HttpResponse("Hello, world. Welcome to popolo.")
@@ -128,12 +129,17 @@ def states(request, statename):
 
 def search(request, prefix):
     prefix=prefix.capitalize()
+    cities = (Popul.objects.filter(city__startswith=prefix)
+                            .values(str('city'), str('state'), str('pop')))
+    print cities
+    print type(cities)
+    return StreamingHttpResponse(cities)
+
+
     # all_cities = Popul.objects.values('city')
-    all_entries = Popul.objects.filter(city__startswith=prefix)
-    print all_entries
-    return StreamingHttpResponse(all_entries)
+    #all_entries = Popul.objects.filter(city__startswith=prefix)
+    #cities_data = serializers.serialize('json', Popul.objects.all(), fields=('city', 'pop'))
+    #print cities_data
+
     
-    '''
-    take prefix user has typed, query database, get results, convert to json, convert
-    to over-the-wire json to 
-    '''
+   #convert to json, convert to over-the-wire json to 
