@@ -1,7 +1,8 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, StreamingHttpResponse
 from django.shortcuts import render_to_response
 from django.template import loader, RequestContext
 from popolo.models import Popul
+# import json
 
 def index(request):
     return HttpResponse("Hello, world. Welcome to popolo.")
@@ -111,6 +112,7 @@ names_dict =    {
 def states(request, statename):
     state_dicts = Popul.objects.values('state').distinct()
     states_list = [state_dict['state'] for state_dict in state_dicts]
+    # return HttpResponse(json.dumps(states_list))
     statename = statename.upper()
     if statename in states_list:
         all_entries = Popul.objects.filter(state=statename)
@@ -123,3 +125,14 @@ def states(request, statename):
         context = RequestContext(request, {
             'statename': statename})
         return HttpResponse(template.render(context))
+
+def search(request, prefix):
+    print prefix
+    all_entries = Popul.objects.filter(city__startswith=prefix)
+    print all_entries
+    return StreamingHttpResponse(all_entries)
+    
+    '''
+    take prefix user has typed, query database, get results, convert to json, convert
+    to over-the-wire json to 
+    '''

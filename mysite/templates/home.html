@@ -20,13 +20,28 @@ render home page in browser
 		<script type="text/javascript" src="{{ STATIC_URL }}ajax_search.js"></script>
 		
 		<script>
+			//will communicate with server via a different URL
 			$(function() {
 				//pass in cities in popolo_popul table
 				availableCities = {{ all_entries|safe }};
       		$( "#cities" ).autocomplete({
       			source: availableCities
       		});
-      		});
+      		function rebuildList(data) {
+      			var $resultList = $("#resultsOfSearch");
+      			$resultList.find("*").remove();
+      			for (var city_dict in data) {
+      				var li = document.createElement("<li>");
+      				$(li).text(city_dict.name + " : " + city_dict.pop);
+      				$resultList.append(li);
+      			}
+      		};
+      		$.ajax({
+				dataType: "json",
+				//url: "{% url 'popolo:search' %}",
+				dataType: $("#cities").text(),
+				success: rebuildList,
+			});
 		</script>
 
 	</head>
