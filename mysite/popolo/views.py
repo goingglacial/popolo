@@ -132,14 +132,14 @@ def search(request, prefix):
     cities = (Popul.objects.filter(city__startswith=prefix)
                             .values(str('city'), str('state'), str('pop')))
     print cities
-    print type(cities)
-    return StreamingHttpResponse(cities)
+    all_cities = Popul.objects.values('city')
+    all_entries = Popul.objects.filter(city__startswith=prefix)
+    cities_data = serializers.serialize('json', Popul.objects.all(), fields=('city', 'state', 'pop'))
+    print cities_data
+    #for item in cities_data:
+            #[{
+    return StreamingHttpResponse(cities_data)
 
-
-    # all_cities = Popul.objects.values('city')
-    #all_entries = Popul.objects.filter(city__startswith=prefix)
-    #cities_data = serializers.serialize('json', Popul.objects.all(), fields=('city', 'pop'))
-    #print cities_data
 
     
    #convert to json, convert to over-the-wire json to 
