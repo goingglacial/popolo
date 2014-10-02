@@ -1,6 +1,6 @@
 <!--
-txpops.html
-render basic view of texas pops data set in browser.
+anyState.html
+render basic view of anyState pops data set in browser.
 -->
 
 <!doctype html>
@@ -18,17 +18,17 @@ render basic view of texas pops data set in browser.
 			<li><a href="{% url 'popolo:about' %}">About</a></li>
 			<li><a href="{% url 'popolo:home' %}">Home</a></li>
 		</ul>
-		<h1 id="header">don't mess with texas</h1>
+		<h1 id="header">top city populations for {{ statename }}</h1>
 		<table>
 			<tr>
 				<th id="city-column">City</th>
-				<th>State</th>
+				<!-- <th>State</th> -->
 				<th>Population</th>
 			</tr>
 			{% for item in all_entries %}
 			<tr>
 				<td>{{ item.city }}</td>
-				<td>{{ item.state }}</td>
+				<!-- <td>{{ item.state }}</td> -->
 				<td>{{ item.pop }}</td>
 			</tr>
 			{% endfor %}

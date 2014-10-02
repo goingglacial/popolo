@@ -129,8 +129,12 @@ def states(request, statename):
 def search(request, prefix):
     print prefix
     all_entries = Popul.objects.filter(city__startswith=prefix)
-    print all_entries
-    return StreamingHttpResponse(all_entries)
+    template = loader.get_template('testpops.html')
+    context = RequestContext(request, {
+        'all_entries': all_entries})
+    return HttpResponse(template.render(context))
+    # print all_entries
+    # return StreamingHttpResponse(all_entries)
     
     '''
     take prefix user has typed, query database, get results, convert to json, convert
