@@ -128,7 +128,7 @@ def states(request, statename):
         return HttpResponse(template.render(context))
 
 def search(request, prefix):
-    prefix=prefix.capitalize()
+    prefix=prefix.title()
     # cities_data is a LIST of DICTS serialized as JSON
     cities_data = serializers.serialize('json', Popul.objects.all(), fields=('city', 'state', 'pop'))
     # deserialize JSON

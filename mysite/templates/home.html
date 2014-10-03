@@ -19,10 +19,21 @@ render home page in browser
 		
 		<script>
 			$(document).ready(function() {
-				$("#cities").autocomplete({
-					source: function(request, response) {
-						// console.log("requested");
-						var base = 'search/' + $("#cities").val();
+				$("#cities").autocomplete({ 
+					delay: 0,
+				      select: function( event, ui ) {
+				      	console.log(ui.item);
+				        $( "#cities" ).val( ui.item.label );
+				        $( "#results" ).html( ui.item.desc );
+				 
+				        return false;
+				      },
+				      focus: function( event, ui ) {
+				        $( "#results" ).html("");
+				        return false;
+				      },
+					  source: function(request, response) {
+						var base = 'search/' + encodeURI($("#cities").val());
 						//var base = 'search/'' + $("#cities").val()';
 						console.log(base);
 
@@ -34,25 +45,21 @@ render home page in browser
 					            	// console.log(data);
 
 					            	response(data.map(function(d) {
-					            		return d.city;
+					            		return {label: (d.city + ", " + d.state), desc: d.pop};//(d.city + ', ' + d.state + ': ' + d.pop);
 					            	}));
-					            //   $('input.suggest-user').removeClass('ui-autocomplete-loading');  // hide loading image
-
-					            // response( $.map( data, function(item) {
-					            //     // your operation on data
-					            // }));
-					          },
-					          error: function(data) {
-					          	console.log("ERROR");
-					              // $('input.suggest-user').removeClass('ui-autocomplete-loading');  
-					          }
+					          	},
+					          	error: function(data) {
+					          		console.log("ERROR");
+					          	}
 					        });
-
-						// response(["merp","bug"]);
 					}
-					// source: ['merp', 'bug']
-					// source = function that is ajax call
-				});
+				}).autocomplete( "instance" )._renderItem = function( ul, item ) {
+
+      return $( "<li>" )
+        .append( "<a>" + item.label + "<br>" + item.desc + "</a>" )
+        .appendTo( ul );
+    };
+;
 			});
 
 		</script>
@@ -80,15 +87,15 @@ render home page in browser
 				<input id="cities" type="text" placeholder="search u.s. city pops">
 				<center>
 					<div id="results">
-						<ul id="results_text">                                  
-							<li></li>
-							<li></li>
-						</ul>
 					</div>
 				</center>
 			</div>
 
 		</center>
+
+		<div id="copyright">
+			<p>Copyright &copy; Annie Kramer 2014</p>
+		</div>
 
 	</body>
 

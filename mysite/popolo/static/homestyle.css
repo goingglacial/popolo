@@ -46,16 +46,35 @@ html{
 }
 
 #nav li a:hover {
-	color: blue;
+	color: #6600FF;
 	background-color: #fff; 
 }
 
 #header {
+	font-size: 50px;
 	color: #F0F8FF;
 	font-family: 'Pacifico', cursive;
 	text-align: center;
 }
 
 #cities {
-	font-size: large;
+	font-size: 40px;
+	width: 40%;
+}
+
+#results {
+	background-color: #66CCFF;
+	font-size: 40px;
+	width:40%;
+	text-align: left;
+	color: white;
+}
+
+#copyright {
+	font-size: 20px;
+	font-family: 'Cabin-Regular', sans-serif;
+	color: white;
+	position: fixed;
+	right: 10px;
+	bottom: 0px;
 }
