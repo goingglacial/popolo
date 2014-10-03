@@ -18,28 +18,42 @@ render home page in browser
 		<script type="text/javascript" src="{{ STATIC_URL }}jquery-ui.js"></script>
 		
 		<script>
-			//will communicate with server via /search URL
-			$(function() {
-				//pass in cities in popolo_popul table
-				availableCities = {{ all_entries|safe }};
-      		$( "#cities" ).autocomplete({
-      			source: availableCities
-      		});
-      		function rebuildList(data) {
-      			var $resultList = $("#resultsOfSearch");
-      			$resultList.find("*").remove();
-      			for (var city_dict in data) {
-      				var li = document.createElement("<li>");
-      				$(li).text(city_dict.name + " : " + city_dict.pop);
-      				$resultList.append(li);
-      			}
-      		};
-      		$.ajax({
-				dataType: "json",
-				//url: "{% url 'popolo:search' %}",
-				dataType: $("#cities").text(),
-				success: rebuildList,
+			$(document).ready(function() {
+				$("#cities").autocomplete({
+					source: function(request, response) {
+						// console.log("requested");
+						var base = 'search/' + $("#cities").val();
+						console.log(base);
+
+							$.ajax({
+					            dataType: "json",
+					            type : 'Get',
+					            url: base,
+					            success: function(data) {
+					            	// console.log(data);
+
+					            	response(data.map(function(d) {
+					            		return d.city, d.pop;
+					            	}));
+					            //   $('input.suggest-user').removeClass('ui-autocomplete-loading');  // hide loading image
+
+					            // response( $.map( data, function(item) {
+					            //     // your operation on data
+					            // }));
+					          },
+					          error: function(data) {
+					          	console.log("ERROR");
+					              // $('input.suggest-user').removeClass('ui-autocomplete-loading');  
+					          }
+					        });
+
+						// response(["merp","bug"]);
+					}
+					// source: ['merp', 'bug']
+					// source = function that is ajax call
+				});
 			});
+
 		</script>
 
 	</head>
@@ -60,9 +74,19 @@ render home page in browser
 		<br>
 
 		<center>
+
 			<div class="ui-widget">
 				<input id="cities" type="text" placeholder="search u.s. city pops">
+				<center>
+					<div id="results">
+						<ul id="results_text">                                  
+							<li></li>
+							<li></li>
+						</ul>
+					</div>
+				</center>
 			</div>
+
 		</center>
 
 	</body>

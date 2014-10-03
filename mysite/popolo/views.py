@@ -141,6 +141,3 @@ def search(request, prefix):
         if possible_city.startswith(prefix):
             user_cities.append(item['fields'])
     return HttpResponse (json.dumps(user_cities))
-
-
-# convert to over-the-wire json to 
