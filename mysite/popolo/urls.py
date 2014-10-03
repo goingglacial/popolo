@@ -11,5 +11,5 @@ urlpatterns = patterns('',
     url(r'^texas$', views.texas, name='texas'),
     url(r'^about$', views.about, name='about'),
     url(r'^states/(?P<statename>\w+)$', views.states, name='states'),
-    url(r'^search/(?P<prefix>\w+)$', views.search, name='search'),
-) 
+    url(r'^search/(?P<prefix>[\w\ ]+)$', views.search, name='search'),
+)

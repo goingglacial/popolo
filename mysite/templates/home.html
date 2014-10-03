@@ -23,6 +23,7 @@ render home page in browser
 					source: function(request, response) {
 						// console.log("requested");
 						var base = 'search/' + $("#cities").val();
+						//var base = 'search/'' + $("#cities").val()';
 						console.log(base);
 
 							$.ajax({
@@ -33,7 +34,7 @@ render home page in browser
 					            	// console.log(data);
 
 					            	response(data.map(function(d) {
-					            		return d.city, d.pop;
+					            		return d.city;
 					            	}));
 					            //   $('input.suggest-user').removeClass('ui-autocomplete-loading');  // hide loading image
 
