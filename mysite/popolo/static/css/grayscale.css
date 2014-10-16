@@ -284,6 +284,11 @@ a:focus {
     margin-top: 100px;
 }
 
+#map-image {
+    height: 200px;
+    width: 100%;
+}
+
 @media(min-width:767px) {
     .content-section {
         padding-top: 250px;
