@@ -1,2 +1,0 @@
-default: 
-	./generate.pe *.sfd

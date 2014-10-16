@@ -1,3 +1,0 @@
-Gudea-Bold.ttf: Version 1.002
-Gudea-Italic.ttf: Version 1.002
-Gudea-Regular.ttf: Version 1.003

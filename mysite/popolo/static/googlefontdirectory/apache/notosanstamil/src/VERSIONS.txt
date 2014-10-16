@@ -1,2 +1,0 @@
-NotoSansTamil-Bold.ttf: Version 1.03
-NotoSansTamil-Regular.ttf: Version 1.03

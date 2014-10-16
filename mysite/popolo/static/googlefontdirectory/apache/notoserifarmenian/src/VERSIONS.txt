@@ -1,2 +1,0 @@
-NotoSerifArmenian-Bold.ttf: Version 1.01
-NotoSerifArmenian-Regular.ttf: Version 1.01

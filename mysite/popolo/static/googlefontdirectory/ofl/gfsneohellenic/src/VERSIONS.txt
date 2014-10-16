@@ -1,4 +1,0 @@
-GFSNeohellenic.ttf: Version 1.0 
-GFSNeohellenicBold.ttf: Version 1.0 
-GFSNeohellenicBoldItalic.ttf: Version 1.0 
-GFSNeohellenicItalic.ttf: Version 1.0 

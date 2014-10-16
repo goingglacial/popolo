@@ -1,4 +1,0 @@
-Philosopher-Bold.ttf: Version 1.000
-Philosopher-BoldItalic.ttf: Version 1.000
-Philosopher-Italic.ttf: Version 1.000
-Philosopher-Regular.ttf: Version 1.000

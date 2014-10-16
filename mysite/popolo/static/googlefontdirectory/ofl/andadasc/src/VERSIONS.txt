@@ -1,4 +1,0 @@
-AndadaSC-Bold.ttf: Version 1.003
-AndadaSC-BoldItalic.ttf: Version 1.003
-AndadaSC-Italic.ttf: Version 1.003
-AndadaSC-Regular.ttf: Version 1.003

@@ -1,5 +1,0 @@
-SeoulNamsanCondensed-Black.ttf: Version 1.00
-SeoulNamsanCondensed-Bold.ttf: Version 1.00
-SeoulNamsanCondensed-ExtraBold.ttf: Version 1.00
-SeoulNamsanCondensed-Light.ttf: Version 1.00
-SeoulNamsanCondensed-Medium.ttf: Version 1.00

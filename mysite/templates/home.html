@@ -1,102 +1,193 @@
-<!--
-home.html
-render home page in browser
--->
+<!DOCTYPE html>
+<html lang="en">
 
-<!doctype html>
-<html>
+<head>
 
-	<head>
-		<meta charset="utf-8">
-		<title>Popolo App</title>
-		{% load staticfiles %}
-		<link href="{{ STATIC_URL }}homestyle.css" rel="stylesheet" type="text/css"/>
-		<link href="{{ STATIC_URL }}bootstrap.css" rel="stylesheet" type="text/css"/>
-		<link href="{{ STATIC_URL }}jquery-ui.css" rel="stylesheet" type="text/css"/>
-		<script type="text/javascript" src="{{ STATIC_URL }}stateNames.js"></script>
-		<script type="text/javascript" src="{{ STATIC_URL }}jquery.js"></script>
-		<script type="text/javascript" src="{{ STATIC_URL }}jquery-ui.js"></script>
-		
-		<script>
-			$(document).ready(function() {
-				$("#cities").autocomplete({ 
-					delay: 0,
-				      select: function( event, ui ) {
-				      	console.log(ui.item);
-				        $( "#cities" ).val( ui.item.label );
-				        $( "#results" ).html( ui.item.desc );
-				 
-				        return false;
-				      },
-				      focus: function( event, ui ) {
-				        $( "#results" ).html("");
-				        return false;
-				      },
-					  source: function(request, response) {
-						var base = 'search/' + encodeURI($("#cities").val());
-						//var base = 'search/'' + $("#cities").val()';
-						console.log(base);
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-							$.ajax({
-					            dataType: "json",
-					            type : 'Get',
-					            url: base,
-					            success: function(data) {
-					            	// console.log(data);
+    <title>Popolo</title>
+    {% load staticfiles %}
 
-					            	response(data.map(function(d) {
-					            		return {label: (d.city + ", " + d.state), desc: d.pop};//(d.city + ', ' + d.state + ': ' + d.pop);
-					            	}));
-					          	},
-					          	error: function(data) {
-					          		console.log("ERROR");
-					          	}
-					        });
-					}
-				}).autocomplete( "instance" )._renderItem = function( ul, item ) {
+    <!-- Bootstrap Core CSS -->
+    <link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet">
 
-      return $( "<li>" )
-        .append( "<a>" + item.label + "<br>" + item.desc + "</a>" )
-        .appendTo( ul );
-    };
-;
-			});
+    <!-- Custom CSS -->
+    <link href="{{ STATIC_URL }}css/grayscale.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/jquery-ui.css" rel="stylesheet">
 
-		</script>
+    <!-- Custom Fonts -->
+    <link href="{{ STATIC_URL}}font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
-	</head>
 
-	<body>
+    <!-- Scripts -->
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-ui.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/grayscale.js"></script>
 
-		<img id="full-screen-background-image" src="{% static "sf.jpg" %}" alt="citybythebay"/>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYbpxZxn5yE4DVDv3tn97LxQ8LSlo3wf0"></script>
+    
+    <script>
+        $(document).ready(function() {
+            $("#cities").autocomplete({ 
+                delay: 0,
+                  select: function( event, ui ) {
+                    console.log(ui.item);
+                    $( "#cities" ).val( ui.item.label );
+                    $( "#results" ).html( ui.item.desc );
+             
+                    return false;
+                  },
+                  focus: function( event, ui ) {
+                    $( "#results" ).html("");
+                    return false;
+                  },
+                  source: function(request, response) {
+                    var base = 'search/' + encodeURI($("#cities").val());
+                    //var base = 'search/'' + $("#cities").val()';
+                    console.log(base);
 
- 		<ul id="nav">
- 			<li><a href="#">States</a></li>
- 			<li><a href="{% url 'popolo:random' %}">Random</a></li>
- 			<li><a href="{% url 'popolo:results' %}">Results</a></li>
- 			<li><a href="{% url 'popolo:bubbles' %}">Bubbles</a></li>
- 			<li><a href="{% url 'popolo:about' %}">About</a></li>
- 		</ul>
+                        $.ajax({
+                            dataType: "json",
+                            type : 'Get',
+                            url: base,
+                            success: function(data) {
+                                // console.log(data);
 
-		<h1 id="header">popolo: know where you are</h1>
-		<br>
+                                response(data.map(function(d) {
+                                    return {label: (d.city + ", " + d.state), desc: d.pop};//(d.city + ', ' + d.state + ': ' + d.pop);
+                                }));
+                            },
+                            error: function(data) {
+                                console.log("ERROR");
+                            }
+                        });
+                }
+            }).autocomplete( "instance" )._renderItem = function( ul, item ) {
 
-		<center>
+            return $( "<li>" )
+                .append( "<a>" + item.label + "<br>" + item.desc + "</a>" )
+                .appendTo( ul );
+            };
+            ;
+            });
 
-			<div class="ui-widget">
-				<input id="cities" type="text" placeholder="search u.s. city pops">
-				<center>
-					<div id="results">
-					</div>
-				</center>
-			</div>
+    </script>
 
-		</center>
+</head>
 
-		<div id="copyright">
-			<p>&copy; Annie Kramer 2014</p>
-		</div>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
-	</body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    <i class="fa fa-play-circle"></i>  <span class="light">going</span> glacial
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#search">Search</a>
+                    <li>
+                        <a class="page-scroll" href="#contact">About</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Intro Header -->
+    <header class="intro">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h1 class="brand-heading">popolo</h1>
+                        <p class="intro-text">know where you are.</p>
+                        <a href="#contact" class="btn btn-circle page-scroll">
+                            <i class="fa fa-angle-double-down animated"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Section -->
+    <section id="search" class="content-section text-center">
+        <div class="search-section">
+            <div class="container">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2 id="search_header">U.S. City Populations</h2>
+                    <center>
+                        <div class="ui-widget">
+                            <input id="cities" type="text" placeholder="search here">
+                            <center>
+                                <div id="results"></div>
+                            </center>
+                        </div>     
+                    </center>   
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <div id="map"></div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container content-section text-center">
+        <div class="contact_deets">
+            <div class="col-lg-8 col-lg-offset-2">
+            	<h2>About Popolo</h2>
+                <p>For years, Annie Kramer roadtripped and wondered, often aloud (and sometimes to the chagrin of her travel companions), about the populations of American cityscapes big and small. Popolo was borne from her desire to know the American landscape as it passes her by in the west, the east, and everywhere in between.</p>
+                <p>Feel free to drop me a line!</p>
+                <p><a href="mailto:goingglacial@gmail.com">goingglacial@gmail.com</a>
+                <p>Google Maps styling is courtesy of <a href="http://snazzymaps.com/">Snazzy Maps</a>.</p>
+                </p>
+                <ul class="list-inline banner-social-buttons">
+                    <li>
+                        <a href="https://twitter.com/goingglacial" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/goingglacial" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                    </li>
+                    <li>
+                        <a href="https://plus.google.com/+AnnieKramerinmontagna/posts" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>&copy; Annie Kramer 2014</p>
+        </div>
+    </footer>
+
+</body>
 
 </html>

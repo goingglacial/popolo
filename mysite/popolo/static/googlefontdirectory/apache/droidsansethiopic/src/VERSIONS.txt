@@ -1,2 +1,0 @@
-DroidSansEthiopic-Bold.ttf: Version 1.03
-DroidSansEthiopic-Regular.ttf: Version 1.03

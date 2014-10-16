@@ -1,2 +1,0 @@
-CabinSketch-Bold.ttf: Version 1.002
-CabinSketch-Regular.ttf: Version 1.002

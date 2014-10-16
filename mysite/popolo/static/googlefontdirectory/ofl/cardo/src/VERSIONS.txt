@@ -1,3 +1,0 @@
-Cardo-Bold.ttf: Version 1.0011
-Cardo-Italic.ttf: Version 0.991
-Cardo-Regular.ttf: Version 1.0451

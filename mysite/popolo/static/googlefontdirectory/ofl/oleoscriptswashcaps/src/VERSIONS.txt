@@ -1,2 +1,0 @@
-OleoScriptSwashCaps-Bold.ttf: Version 1.002
-OleoScriptSwashCaps-Regular.ttf: Version 1.002

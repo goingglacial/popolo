@@ -1,4 +1,0 @@
-Amiri-Bold.ttf: Version 000.104 
-Amiri-BoldSlanted.ttf: Version 000.104 
-Amiri-Regular.ttf: Version 000.104 
-Amiri-Slanted.ttf: Version 000.104 

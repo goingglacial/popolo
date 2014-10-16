@@ -1,3 +1,0 @@
-Trochut-Bold.ttf: Version 1.001
-Trochut-Italic.ttf: Version 1.001
-Trochut-Regular.ttf: Version 1.001

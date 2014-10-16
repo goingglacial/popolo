@@ -1,2 +1,0 @@
-Phetsarath-Bold.ttf: Version 1.01
-Phetsarath-Regular.ttf: Version 1.01

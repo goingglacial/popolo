@@ -1,4 +1,0 @@
-Quantico-Bold.ttf: Version 2.002
-Quantico-BoldItalic.ttf: Version 2.002
-Quantico-Italic.ttf: Version 2.002
-Quantico-Regular.ttf: Version 2.002

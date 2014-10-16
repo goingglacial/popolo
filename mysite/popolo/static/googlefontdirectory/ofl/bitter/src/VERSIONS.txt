@@ -1,3 +1,0 @@
-Bitter-Bold.ttf: Version 001.001
-Bitter-Italic.ttf: Version 1.001
-Bitter-Regular.ttf: Version 1.001

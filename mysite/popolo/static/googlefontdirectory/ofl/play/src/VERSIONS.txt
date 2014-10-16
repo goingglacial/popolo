@@ -1,2 +1,0 @@
-Play-Bold.ttf: Version 1.002
-Play-Regular.ttf: Version 1.002

@@ -1,3 +1,0 @@
-PassionOne-Black.ttf: Version 1.001
-PassionOne-Bold.ttf: Version 1.001
-PassionOne-Regular.ttf: Version 1.001

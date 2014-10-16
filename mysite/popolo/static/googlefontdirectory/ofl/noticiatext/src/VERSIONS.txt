@@ -1,4 +1,0 @@
-NoticiaText-Bold.ttf: Version 1.003
-NoticiaText-BoldItalic.ttf: Version 1.003
-NoticiaText-Italic.ttf: Version 1.003
-NoticiaText-Regular.ttf: Version 1.003

@@ -1,3 +1,0 @@
-Ruda-Black.ttf: Version 1.002
-Ruda-Bold.ttf: Version 1.002
-Ruda-Regular.ttf: Version 1.002

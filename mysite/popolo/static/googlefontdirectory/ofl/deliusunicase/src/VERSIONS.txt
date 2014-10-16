@@ -1,2 +1,0 @@
-DeliusUnicase-Bold.ttf: Version 1.001
-DeliusUnicase-Regular.ttf: Version 1.002

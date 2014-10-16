@@ -1,6 +1,0 @@
-Alegreya-Black.ttf: Version 1.003
-Alegreya-BlackItalic.ttf: Version 1.003
-Alegreya-Bold.ttf: Version 1.003
-Alegreya-BoldItalic.ttf: Version 1.003
-Alegreya-Italic.ttf: Version 1.003
-Alegreya-Regular.ttf: Version 1.003

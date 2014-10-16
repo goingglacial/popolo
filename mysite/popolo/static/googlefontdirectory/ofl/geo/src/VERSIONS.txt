@@ -1,2 +1,0 @@
-Geo-Oblique.ttf: Version 001.2 
-Geo-Regular.ttf: Version 001.2 

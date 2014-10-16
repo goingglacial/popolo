@@ -1,3 +1,0 @@
-KoPubBatang-Bold.ttf: Version 1.01
-KoPubBatang-Light.ttf: Version 1.01
-KoPubBatang-Regular.ttf: Version 1.01

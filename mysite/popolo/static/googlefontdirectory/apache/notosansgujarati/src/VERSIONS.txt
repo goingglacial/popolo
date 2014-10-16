@@ -1,2 +1,0 @@
-NotoSansGujarati-Bold.ttf: Version 1.00
-NotoSansGujarati-Regular.ttf: Version 1.00

@@ -1,3 +1,0 @@
-Nunito-Bold.ttf: Version 1.001
-Nunito-Light.ttf: Version 1.001
-Nunito-Regular.ttf: Version 1.001
