@@ -29,35 +29,47 @@ $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
 
-// Google Maps Scripts
-// When the window has finished loading create our google map below
-google.maps.event.addDomListener(window, 'load', init);
+// jQuery search widget
+$(document).ready(function() {
+    $("#cities").autocomplete({ 
+        delay: 0,
+          select: function( event, ui ) {
+            console.log(ui.item);
+            $( "#cities" ).val( ui.item.label );
+            $( "#results" ).html( ui.item.desc );
+     
+            return false;
+          },
+          focus: function( event, ui ) {
+            $( "#results" ).html("");
+            return false;
+          },
+          source: function(request, response) {
+            var base = 'search/' + encodeURI($("#cities").val());
+            //var base = 'search/'' + $("#cities").val()';
+            console.log(base);
 
-function init() {
-    // Basic options for a simple Google Map
-    // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
-    var mapOptions = {
-        // How zoomed in you want the map to start at (always required)
-        zoom: 4,
+                $.ajax({
+                    dataType: "json",
+                    type : 'Get',
+                    url: base,
+                    success: function(data) {
+                        // console.log(data);
 
-        // The latitude and longitude to center the map (always required)
-        center: new google.maps.LatLng(37.09024, -95.712891), // United States
+                        response(data.map(function(d) {
+                            return {label: (d.city + ", " + d.state), desc: d.pop};//(d.city + ', ' + d.state + ': ' + d.pop);
+                        }));
+                    },
+                    error: function(data) {
+                        console.log("ERROR");
+                    }
+                });
+        }
+    }).autocomplete( "instance" )._renderItem = function( ul, item ) {
 
-        // Disables the default Google Maps UI components
-        disableDefaultUI: true,
-        scrollwheel: true,
-        draggable: true,
-
-        // How you would like to style the map. 
-        // This is where you would paste any style found on Snazzy Maps.
-        styles: [   {       featureType:'water',        stylers:[{color:'#46bcec'},{visibility:'on'}]   },{     featureType:'landscape',        stylers:[{color:'#f2f2f2'}] },{     featureType:'road',     stylers:[{saturation:-100},{lightness:45}]  },{     featureType:'road.highway',     stylers:[{visibility:'simplified'}] },{     featureType:'road.arterial',        elementType:'labels.icon',      stylers:[{visibility:'off'}]    },{     featureType:'administrative',       elementType:'labels.text.fill',     stylers:[{color:'#444444'}] },{     featureType:'transit',      stylers:[{visibility:'off'}]    },{     featureType:'poi',      stylers:[{visibility:'off'}]    }]
+    return $( "<li>" )
+        .append( "<a>" + item.label + "<br>" + item.desc + "</a>" )
+        .appendTo( ul );
     };
-
-    // Get the HTML DOM element that will contain your map 
-    // We are using a div with id="map" seen below in the <body>
-    var mapElement = document.getElementById('map');
-
-    // Create the Google Map using out element and options defined above
-    var map = new google.maps.Map(mapElement, mapOptions);
-
-}
+    ;
+    });
