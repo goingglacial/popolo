@@ -57,7 +57,7 @@ $(document).ready(function() {
                         // console.log(data);
 
                         response(data.map(function(d) {
-                            return {label: (d.city + ", " + d.state), desc: d.pop};//(d.city + ', ' + d.state + ': ' + d.pop);
+                            return {label: (d.city + "" + d.state), desc: d.pop};//(d.city + ', ' + d.state + ': ' + d.pop);
                         }));
                     },
                     error: function(data) {
@@ -73,3 +73,7 @@ $(document).ready(function() {
     };
     ;
     });
+
+$("html").click(function () {
+    $("#results").delay(4000).fadeOut("slow");
+});
