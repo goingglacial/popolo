@@ -37,8 +37,8 @@ $(document).ready(function() {
             console.log(ui.item);
             $( "#cities" ).val( ui.item.label );
             $( "#results" ).html( ui.item.desc );
-     
             return false;
+
           },
           focus: function( event, ui ) {
             $( "#results" ).html("");
@@ -71,9 +71,9 @@ $(document).ready(function() {
         .append( "<a>" + item.label + "<br>" + item.desc + "</a>" )
         .appendTo( ul );
     };
-    ;
     });
 
 $("html").click(function () {
+// $("#cities").focusout(function() {
     $("#results").delay(4000).fadeOut("slow");
 });
