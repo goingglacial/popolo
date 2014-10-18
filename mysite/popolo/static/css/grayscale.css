@@ -134,7 +134,7 @@ a:focus {
     padding: 100px 0;
     text-align: center;
     color: #fff;
-    background: url(../img/tetons.jpg) no-repeat bottom center scroll;
+    background: url(../img/bridge.jpg) no-repeat bottom center scroll;
     background-color: #000;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -261,20 +261,20 @@ a:focus {
 }
 
 #cities {
-    font-size: 40px;
+    font-size: 25px;
     width: 40%;
     color: black;
     font-family: 'Lora', serif;
 }
 
 #results {
-    background-color: #FFA500;
-    font-size: 40px;
+    background-color: black;
+    font-size: 25px;
     width:40%;
     text-align: left;
     color: white;
     font-family: 'Lora', serif;
-}
+}   
 
 @media(min-width:767px) {
     .content-section {
@@ -285,8 +285,6 @@ a:focus {
         padding: 200px 0;
         background-color: black;
     }
-
-}
 
 .btn {
     text-transform: uppercase;

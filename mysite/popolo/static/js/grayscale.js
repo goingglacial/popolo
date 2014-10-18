@@ -31,12 +31,19 @@ $('.navbar-collapse ul li a').click(function() {
 
 // jQuery search widget
 $(document).ready(function() {
+
+      $('span.glyphicon').click(function() {
+        $('#cities').val('');
+        $('#results').fadeOut("slow");
+    });
+ 
     $("#cities").autocomplete({ 
         delay: 0,
           select: function( event, ui ) {
             console.log(ui.item);
             $( "#cities" ).val( ui.item.label );
             $( "#results" ).html( ui.item.desc );
+            $('#results').fadeIn("slow");
             return false;
 
           },
@@ -57,7 +64,7 @@ $(document).ready(function() {
                         // console.log(data);
 
                         response(data.map(function(d) {
-                            return {label: (d.city + "" + d.state), desc: d.pop};//(d.city + ', ' + d.state + ': ' + d.pop);
+                            return {label: (d.city + " - " + d.state), desc: d.city + "- " + d.pop};//(d.city + ', ' + d.state + ': ' + d.pop);
                         }));
                     },
                     error: function(data) {
@@ -72,8 +79,11 @@ $(document).ready(function() {
         .appendTo( ul );
     };
     });
+  
 
-$("html").click(function () {
-// $("#cities").focusout(function() {
-    $("#results").delay(4000).fadeOut("slow");
-});
+//$(document).ready(function() {
+//   $('html').click(function() {
+//        $('#cities').val('');
+//        $('#results').delay(4000).fadeToggle("slow");
+//    });
+// });
